@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151411">
+  <title>Felix — оптика с характером</title>
+  <style>
+    :root { --ink:#171916; --paper:#e7d1a4; --red:#722616; --gold:#f3d891; --line:rgba(225,188,109,.55); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--gold); background:radial-gradient(ellipse at top,#35301f 0,#171714 48%,#100f0e 100%); font-family: Georgia, 'Times New Roman', serif; }
+    a { color:inherit; }
+    .site { max-width:760px; margin:auto; padding:18px 14px 42px; }
+    .top { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:6px 2px 20px; }
+    .brand { letter-spacing:.16em; font-weight:bold; font-size:clamp(1.2rem,5vw,1.7rem); text-decoration:none; }
+    .lang { display:flex; border:1px solid var(--line); border-radius:2px; overflow:hidden; }
+    .lang button { min-height:40px; padding:0 12px; border:0; color:var(--gold); background:transparent; font:700 .78rem/1 Georgia,serif; letter-spacing:.08em; cursor:pointer; }
+    .lang button[aria-pressed="true"] { background:var(--gold); color:#171714; }
+    .gallery { display:grid; gap:34px; padding:12px 0 22px; }
+    article { text-align:center; }
+    figure { margin:0; position:relative; }
+    figure::after { content:''; position:absolute; inset:5px; pointer-events:none; border:1px solid rgba(240,202,129,.3); border-radius:9px; }
+    img { display:block; width:100%; max-height:640px; object-fit:cover; object-position:center; border-radius:12px; box-shadow:0 9px 25px rgba(0,0,0,.45); }
+    .poster--wide img { max-height:430px; }
+    .caption { margin:12px 0 14px; color:#e8d6aa; font-size:1.06rem; line-height:1.35; }
+    .action { display:inline-flex; align-items:center; justify-content:center; min-height:49px; padding:12px 22px; border:1px solid #c18b49; border-radius:3px; color:#1a1712; background:linear-gradient(#f0d18b,#c79450); text-decoration:none; font-weight:bold; font-size:.88rem; letter-spacing:.06em; text-transform:uppercase; box-shadow:0 3px 0 #70401f; transition:transform .15s, filter .15s; }
+    .action:hover,.action:focus-visible { filter:brightness(1.1); transform:translateY(-2px); }
+    .footer { text-align:center; border-top:1px solid var(--line); padding:26px 0 6px; }
+    .footer p { margin:0 0 14px; color:#d2b580; font-size:.9rem; }
+    .notice { position:fixed; left:50%; bottom:20px; z-index:3; max-width:calc(100% - 32px); padding:12px 16px; transform:translate(-50%,120px); color:#1a1712; background:#f0d18b; border-radius:3px; text-align:center; font:700 .9rem/1.35 Arial,sans-serif; opacity:0; transition:.25s; }
+    .notice.show { transform:translate(-50%,0); opacity:1; }
+    @media (min-width:700px) { .site { padding-top:28px; } .gallery { grid-template-columns:1fr 1fr; column-gap:22px; } article:nth-child(1),article:nth-child(2),article:nth-child(6) { grid-column:1/-1; } article:nth-child(2) img { max-height:470px; } }
+    @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto; transition:none!important; } }
+  </style>
+</head>
+<body>
+  <main class="site">
+    <header class="top">
+      <a class="brand" href="#top" aria-label="Felix">FELIX</a>
+      <div class="lang" aria-label="Language">
+        <button type="button" data-lang="ru" aria-pressed="true">РУС</button>
+        <button type="button" data-lang="kk" aria-pressed="false">ҚАЗ</button>
+      </div>
+    </header>
+    <section class="gallery" id="top" aria-label="Felix services">
+      <article class="poster--wide">
+        <figure><img src="assets/poster-1.jpg" alt="Felix предлагает очки, оправы и ремонт очков" loading="eager"></figure>
+        <p class="caption" data-i18n="cap1">Очки, оправы и мастерский ремонт</p>
+        <a class="action" data-link="whatsapp" href="#" data-i18n="act1">Написать в WhatsApp</a>
+      </article>
+      <article>
+        <figure><img src="assets/poster-2.png" alt="Felix: оптика, подобранная мастером" loading="lazy"></figure>
+        <p class="caption" data-i18n="cap2">Оправы и линзы, подобранные с заботой</p>
+        <a class="action" data-link="instagram" href="#" data-i18n="view">Посмотреть</a>
+      </article>
+      <article>
+        <figure><img src="assets/poster-3.png" alt="Felix предлагает солнцезащитные очки" loading="lazy"></figure>
+        <p class="caption" data-i18n="cap3">Солнцезащитные очки</p>
+        <a class="action" data-link="instagram" href="#" data-i18n="view">Посмотреть</a>
+      </article>
+      <article>
+        <figure><img src="assets/poster-4.png" alt="Выгодная продажа контактных линз" loading="lazy"></figure>
+        <p class="caption" data-i18n="cap4">Контактные линзы</p>
+        <a class="action" data-link="whatsapp" href="#" data-i18n="act4">Заказать контактные линзы</a>
+      </article>
+      <article>
+        <figure><img src="assets/poster-5.png" alt="Бесплатная проверка зрения" loading="lazy"></figure>
+        <p class="caption" data-i18n="cap5">Проверка зрения</p>
+        <a class="action" data-link="whatsapp" href="#" data-i18n="act5">Записаться на приём к врачу</a>
+      </article>
+      <article class="poster--wide">
+        <figure><img src="assets/poster-6.png" alt="Felix ремонтирует очки любой сложности" loading="lazy"></figure>
+        <p class="caption" data-i18n="cap6">Ремонт очков любой сложности</p>
+        <a class="action" data-link="whatsapp" href="#" data-i18n="act6">Сделайте фото поломки и отправьте нам</a>
+      </article>
+    </section>
+    <footer class="footer">
+      <p data-i18n="foot">Felix — хорошая оправа, хорошие линзы, хорошая работа.</p>
+      <a class="action" data-link="maps" href="#" data-i18n="contact">Контактная информация</a>
+    </footer>
+  </main>
+  <div class="notice" role="status" aria-live="polite"></div>
+  <script>
+    const destinations = {
+      whatsapp: 'https://wa.me/77029459510',
+      instagram: 'https://www.instagram.com/felix_optica?igsi=dzk0amtkb2IzYWpt',
+      maps: 'https://2gis.kz/astana/geo/70000001036333006'
+    };
+    const copy = {
+      ru:{ cap1:'Очки, оправы и мастерский ремонт',cap2:'Оправы и линзы, подобранные с заботой',cap3:'Солнцезащитные очки',cap4:'Контактные линзы',cap5:'Проверка зрения',cap6:'Ремонт очков любой сложности',act1:'Написать в WhatsApp',view:'Посмотреть',act4:'Заказать контактные линзы',act5:'Записаться на приём к врачу',act6:'Сделайте фото поломки и отправьте нам',foot:'Felix — хорошая оправа, хорошие линзы, хорошая работа.',contact:'Контактная информация',missing:'Ссылка будет добавлена совсем скоро.'},
+      kk:{ cap1:'Көзілдірік, жиектер және сапалы жөндеу',cap2:'Қамқорлықпен таңдалған жиектер мен линзалар',cap3:'Күннен қорғайтын көзілдірік',cap4:'Контактілі линзалар',cap5:'Көруді тексеру',cap6:'Кез келген күрделіліктегі көзілдірік жөндеуі',act1:'WhatsApp-қа жазу',view:'Қарау',act4:'Контактілі линзаға тапсырыс беру',act5:'Дәрігер қабылдауына жазылу',act6:'Сынған жерін суретке түсіріп, бізге жіберіңіз',foot:'Felix — жақсы жиек, жақсы линза, сапалы жұмыс.',contact:'Байланыс ақпараты',missing:'Сілтеме жақында қосылады.'}
+    };
+    let lang='ru'; const notice=document.querySelector('.notice');
+    function render(){ document.documentElement.lang=lang; document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=copy[lang][el.dataset.i18n]); document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang)); }
+    document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang; render()}));
+    document.querySelectorAll('[data-link]').forEach(link=>link.addEventListener('click',e=>{const url=destinations[link.dataset.link]; if(!url){e.preventDefault(); notice.textContent=copy[lang].missing; notice.classList.add('show'); setTimeout(()=>notice.classList.remove('show'),2600)} else {link.href=url; link.target='_blank'; link.rel='noopener'}}));
+  </script>
+</body>
+</html>
