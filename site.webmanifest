@@ -1,0 +1,17 @@
+{
+  "name": "Felix — оптика в Астане",
+  "short_name": "Felix",
+  "start_url": "/felix-landing/",
+  "display": "standalone",
+  "background_color": "#151916",
+  "theme_color": "#151411",
+  "icons": [
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
